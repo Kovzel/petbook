@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List users</title>
+</head>
+<body>
+<form th:action="@{/user/all}" th:object="${users}" method="get">
+<h1>Users list</h1>
+
+<table>
+    <tr>
+        <th></th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>email</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td align='center'>
+            <form th:href="@{'/user/findUser/' + ${user.id}}" th:object="${user}" method="get">
+            <input type=submit value="get in" style="width:100%">
+        </form></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+    </tr>
+</table>
+</form>
+
+<p>
+    <a href="/home" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</body>
+</html>

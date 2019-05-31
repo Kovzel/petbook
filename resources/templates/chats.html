@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/chat/all}" th:object="${chats}" method="get">
+    <h1>Chats list</h1>
+
+    <table>
+        <tr>
+            <th>name</th>
+        </tr>
+        <tr th:each="chat : ${chats}">
+            <td th:text="${chat.name}"></td>
+        </tr>
+    </table>
+</form>
+
+<p>
+    <a href="/home" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+</body>
+</html>
